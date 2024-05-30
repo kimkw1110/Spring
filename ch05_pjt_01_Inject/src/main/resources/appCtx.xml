@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- XML 선언. 버전 및 인코딩 정보 포함 -->
+
+<!-- 
+    이 XML 파일은 Spring Framework의 설정 파일입니다.
+    각 Bean 객체를 생성하고 설정하기 위해 사용됩니다.
+-->
+
+<!-- Spring XML 네임스페이스 정의 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xmlns:context="http://www.springframework.org/schema/context" 
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Annotation을 사용하기 위해 추가된 설정 -->
+    <context:annotation-config/>
+
+    <!-- InitSampleData Bean 설정 -->
+	<bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData"> 
+		<!-- Bean의 'names' 속성 설정 -->
+		<property name="names"> 
+			<!-- 배열 형태로 값을 설정 -->
+			<array> 
+				<value>류현진</value> <!-- 첫 번째 이름 -->
+				<value>손흥민</value> <!-- 두 번째 이름 -->
+				<value>김연경</value> <!-- 세 번째 이름 -->
+			</array>
+		</property>
+		<!-- Bean의 'phoneNumbers' 속성 설정 -->
+		<property name="phoneNumbers"> 
+			<!-- 배열 형태로 값을 설정 -->
+			<array> 
+				<value>010-0000-1111</value> <!-- 첫 번째 전화번호 -->
+				<value>010-0000-2222</value> <!-- 두 번째 전화번호 -->
+				<value>010-0000-3333</value> <!-- 세 번째 전화번호 -->
+			</array>
+		</property>
+	</bean>
+
+	<!-- ContactDao Bean 설정 -->
+	<!-- 각기 다른 ID로 여러 Bean 객체 생성 -->
+	<bean id="contactDao1" class="ch05_pjt_01.contact.dao.ContactDao" /> 
+	<bean id="contactDao2" class="ch05_pjt_01.contact.dao.ContactDao" /> 
+	<bean id="contactDao3" class="ch05_pjt_01.contact.dao.ContactDao" /> 
+
+	<!-- ContactRegisterService Bean 설정 -->
+	<bean id="registerService" class="ch05_pjt_01.contact.service.ContactRegisterService">
+		<!-- 생성자를 통한 주입 방법 설정 -->
+		<!-- <constructor-arg ref="contactDao" /> --> <!-- 주석 처리됨 -->
+	</bean>
+
+	<!-- ContactSearchService Bean 설정 -->
+	<bean id="searchService" class="ch05_pjt_01.contact.service.ContactSearchService">
+		<!-- 생성자를 통한 주입 방법 설정 -->
+		<!-- <constructor-arg ref="contactDao" /> --> <!-- 주석 처리됨 -->
+	</bean>
+	
+</beans>

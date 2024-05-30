@@ -1,0 +1,61 @@
+<!-- Maven 프로젝트 설정 파일 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	https://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+	
+    <!-- 모델 버전 -->
+    <modelVersion>4.0.0</modelVersion> 
+    <!-- 프로젝트 그룹 아이디 -->
+    <groupId>spring5</groupId> 
+    <!-- 프로젝트 아티팩트 아이디 -->
+    <artifactId>ch04_pjt_01</artifactId> 
+    <!-- 프로젝트 버전 -->
+    <version>0.0.1-SNAPSHOT</version> 
+    
+    <!-- 프로젝트에 필요한 의존성 설정 -->
+    <dependencies>
+        <!-- Spring Framework의 spring-context 모듈 의존성 -->
+        <dependency>
+            <!-- 그룹 아이디 -->
+            <groupId>org.springframework</groupId> 
+            <!-- 아티팩트 아이디 -->
+            <artifactId>spring-context</artifactId> 
+            <!-- 버전 -->
+            <version>5.2.9.RELEASE</version> 
+        </dependency>
+        
+        <!-- Javax.Inject 라이브러리 의존성 -->
+        <dependency>
+            <!-- 그룹 아이디 -->
+            <groupId>javax.inject</groupId> 
+            <!-- 아티팩트 아이디 -->
+            <artifactId>javax.inject</artifactId> 
+            <!-- 버전 -->
+            <version>1</version> 
+        </dependency>
+    </dependencies>
+  
+    <!-- 빌드 설정 -->
+    <build>
+        <plugins>
+            <!-- Maven 컴파일 플러그인 설정 -->
+            <plugin>
+                <!-- 플러그인 아티팩트 아이디 -->
+                <artifactId>maven-compiler-plugin</artifactId> 
+                <!-- 버전 -->
+                <version>3.1</version> 
+                <!-- 플러그인 설정 -->
+                <configuration>
+                    <!-- Java 소스 코드 버전 -->
+                    <source>11</source> 
+                    <!-- Java 타겟 코드 버전 -->
+                    <target>11</target> 
+                    <!-- 파일 인코딩 설정 -->
+                    <encoding>utf-8</encoding> 
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
