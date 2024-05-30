@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <!-- 프로젝트의 모델 버전을 지정합니다. -->
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Maven 프로젝트의 그룹 ID를 지정합니다. 보통 조직이나 회사 이름을 사용합니다. -->
+    <groupId>spring5</groupId>
+    
+    <!-- Maven 프로젝트의 아티팩트 ID를 지정합니다. 프로젝트의 고유한 이름입니다. -->
+    <artifactId>ch03_pjt_02</artifactId>
+    
+    <!-- 프로젝트의 버전을 지정합니다. "SNAPSHOT"은 개발 중인 버전을 나타냅니다. -->
+    <version>0.0.1-SNAPSHOT</version>
+    
+    <!-- 프로젝트의 의존성을 정의합니다. -->
+    <dependencies>
+        <!-- Spring 프레임워크의 "spring-context" 모듈을 의존성에 추가합니다. -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+    </dependencies>
+    
+    <!-- 빌드 설정을 정의합니다. -->
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin을 사용하여 프로젝트를 컴파일합니다. -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <!-- 소스 코드의 Java 버전을 지정합니다. -->
+                    <source>11</source>
+                    <!-- 컴파일된 클래스의 대상 Java 버전을 지정합니다. -->
+                    <target>11</target>
+                    <!-- 소스 파일의 인코딩을 UTF-8로 설정합니다. -->
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>

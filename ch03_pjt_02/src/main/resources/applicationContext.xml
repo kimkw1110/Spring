@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 이 파일은 Spring 프레임워크에서 사용하는 XML 기반의 Bean 설정 파일입니다. -->
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- Bean을 정의합니다. "tw"는 Bean의 식별자로, 애플리케이션에서 이 ID로 Bean을 가져올 수 있습니다. -->
+    <!-- 이 Bean은 "ch03_pjt_02.TransportationWalk" 클래스를 기반으로 생성됩니다. -->
+    <bean id="tw" class="ch03_pjt_02.TransportationWalk">
+        <!-- 이 Bean은 특별한 초기화나 속성 설정 없이 기본 설정으로 생성됩니다. -->
+    </bean>
+</beans>
