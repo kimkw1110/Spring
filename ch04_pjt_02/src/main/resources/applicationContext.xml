@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring Bean 설정 파일 -->
+
+<!-- Spring Bean 정의를 위한 네임스페이스 및 스키마 위치 지정 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- InjectionBean 클래스를 사용하여 Bean 설정 -->
+	<bean id="injectionBean" class="ch04_pjt_02.scope.InjectionBean"/>
+
+	<!-- DependencyBean 클래스를 사용하여 Bean 설정 -->
+	<bean id="dependencyBean" class="ch04_pjt_02.scope.DependencyBean">
+		<!-- DependencyBean 객체를 생성할 때 constructor-arg를 이용하여 injectionBean을 주입 -->
+		<constructor-arg ref="injectionBean"/>
+	</bean>
+	
+	<!--
+		주석 처리된 코드:
+		동일한 Bean ID(dependencyBean)로 두 번째 Bean을 정의하면 오류가 발생할 수 있으므로 주석 처리함.
+		만약 주석을 해제하고 두 번째 Bean을 사용하려면 ID를 변경해야 함.
+	-->
+	<!--
+	<bean id="dependencyBean" class="ch04_pjt_02.scope.DependencyBean">
+		<constructor-arg ref="injectionBean"/>
+	</bean>
+	-->
+
+</beans>
