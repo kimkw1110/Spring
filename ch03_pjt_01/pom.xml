@@ -1,0 +1,20 @@
+<!-- 이 파일은 Maven 프로젝트의 Project Object Model(POM) 파일입니다. -->
+<!-- POM 파일은 Maven 프로젝트의 설정과 의존성을 정의합니다. -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <!-- Maven POM의 모델 버전을 정의합니다. -->
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- 프로젝트의 그룹 ID를 정의합니다. 보통 회사나 조직의 도메인 이름을 역순으로 사용합니다. -->
+  <groupId>spring5</groupId>
+  
+  <!-- 프로젝트의 아티팩트 ID를 정의합니다. 이 프로젝트의 고유한 이름을 나타냅니다. -->
+  <artifactId>ch03_pjt_01</artifactId>
+  
+  <!-- 프로젝트의 버전을 정의합니다. -->
+  <version>0.0.1-SNAPSHOT</version>
+  
+</project>
