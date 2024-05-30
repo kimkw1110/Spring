@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Maven 프로젝트 정의 파일 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>  <!-- POM 파일의 모델 버전 -->
+	<groupId>com.company.hello</groupId>  <!-- 프로젝트 그룹 ID -->
+	<artifactId>member</artifactId>  <!-- 프로젝트 아티팩트 ID -->
+	<name>ch08_pjt_01</name>  <!-- 프로젝트 이름 -->
+	<packaging>war</packaging>  <!-- 패키징 타입 (war 파일) -->
+	<version>1.0.0-BUILD-SNAPSHOT</version>  <!-- 프로젝트 버전 -->
+	<properties>
+		<java-version>11</java-version>  <!-- Java 버전 -->
+		<org.springframework-version>5.2.9.RELEASE</org.springframework-version>  <!-- Spring 프레임워크 버전 -->
+		<org.aspectj-version>1.6.10</org.aspectj-version>  <!-- AspectJ 버전 -->
+		<org.slf4j-version>1.6.6</org.slf4j-version>  <!-- SLF4J 버전 -->
+	</properties>
+	<dependencies>
+		<!-- Spring 프레임워크 의존성 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- SLF4J를 사용하기 위해 Commons Logging을 제외 -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+				
+		<!-- AspectJ 의존성 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+		
+		<!-- Logging 의존성 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- @Inject 어노테이션을 위한 의존성 -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet API 의존성 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>  <!-- 제공된 스코프, 컨테이너가 제공 -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>  <!-- 제공된 스코프, 컨테이너가 제공 -->
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	
+		<!-- 테스트용 의존성 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>  <!-- 테스트 스코프 -->
+		</dependency>        
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                        <!-- Spring Nature 추가 -->
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                        <!-- Spring Builder 추가 -->
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>  <!-- 소스 다운로드 설정 -->
+                    <downloadJavadocs>true</downloadJavadocs>  <!-- JavaDocs 다운로드 설정 -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>11</source>  <!-- 소스 컴파일 버전 -->
+                    <target>11</target>  <!-- 타겟 컴파일 버전 -->
+                    <compilerArgument>-Xlint:all</compilerArgument>  <!-- 컴파일러 경고 설정 -->
+                    <showWarnings>true</showWarnings>  <!-- 경고 출력 설정 -->
+                    <showDeprecation>true</showDeprecation>  <!-- 사용되지 않는 API 경고 설정 -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>  <!-- 실행할 메인 클래스 설정 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
