@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    이 XML 파일은 Spring Framework의 설정 파일입니다.
+    각 Bean 객체들을 생성하고 설정하기 위해 사용됩니다.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- annotation을 사용하기 위해 추가된 코드 -->
+    <context:annotation-config/>
+
+    <!-- InitSampleData Bean 설정 -->
+	<bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
+		<!-- names 속성 설정 -->
+		<property name="names">
+			<!-- String 배열 설정 -->
+			<array>
+				<value>류현진</value> <!-- 이름 1 -->
+				<value>손흥민</value> <!-- 이름 2 -->
+				<value>김연경</value> <!-- 이름 3 -->
+			</array>
+		</property>
+		<!-- phoneNumbers 속성 설정 -->
+		<property name="phoneNumbers">
+			<!-- String 배열 설정 -->
+			<array>
+				<value>010-0000-1111</value> <!-- 전화번호 1 -->
+				<value>010-0000-2222</value> <!-- 전화번호 2 -->
+				<value>010-0000-3333</value> <!-- 전화번호 3 -->
+			</array>
+		</property>
+	</bean>
+	
+	<!-- ContactDao Bean 설정 -->
+	<bean id="contactDao" class="ch05_pjt_01.contact.dao.ContactDao" />
+	
+	<!-- ContactRegisterService Bean 설정 -->
+	<bean id="registerService" class="ch05_pjt_01.contact.service.ContactRegisterService">
+		<!-- ContactDao Bean을 생성자를 통해 주입하도록 설정 -->
+		<!-- <constructor-arg ref="contactDao" /> -->
+	</bean>
+	
+	<!-- ContactSearchService Bean 설정 -->
+	<bean id="searchService" class="ch05_pjt_01.contact.service.ContactSearchService">
+		<!-- ContactDao Bean을 생성자를 통해 주입하도록 설정 -->
+		<!-- <constructor-arg ref="contactDao" /> -->
+	</bean>
+	
+</beans>
