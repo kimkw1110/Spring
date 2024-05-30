@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Spring Bean 설정 파일 -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">  
+
+    <!-- 덧셈을 수행하는 CalAdd 클래스를 빈으로 등록 -->
+    <bean id="cAdd" class="ch03_pjt_03.CalAdd" />
+    
+    <!-- 뺄셈을 수행하는 CalSub 클래스를 빈으로 등록 -->
+    <bean id="cSub" class="ch03_pjt_03.CalSub" />
+    
+    <!-- 곱셈을 수행하는 CalMul 클래스를 빈으로 등록 -->
+    <bean id="cMul" class="ch03_pjt_03.CalMul" />
+    
+    <!-- 나눗셈을 수행하는 CalDiv 클래스를 빈으로 등록 -->
+    <bean id="cDiv" class="ch03_pjt_03.CalDiv" />
+
+    <!-- 계산기를 나타내는 MyCalculator 클래스를 빈으로 등록 -->
+    <bean id="myCalculator" class="ch03_pjt_03.MyCalculator" />
+
+    <!-- 계산기를 조립하는 CalAssembler 클래스를 빈으로 등록 -->
+    <bean id="calAssembler" class="ch03_pjt_03.CalAssembler" >
+        <!-- MyCalculator 빈을 첫 번째 생성자 인자로 전달 -->
+        <constructor-arg ref="myCalculator" />
+        <!-- 덧셈 빈을 두 번째 생성자 인자로 전달 -->
+        <constructor-arg ref="cAdd" />
+        <!-- 뺄셈 빈을 세 번째 생성자 인자로 전달 -->
+        <constructor-arg ref="cSub" />
+        <!-- 곱셈 빈을 네 번째 생성자 인자로 전달 -->
+        <constructor-arg ref="cMul" />
+        <!-- 나눗셈 빈을 다섯 번째 생성자 인자로 전달 -->
+        <constructor-arg ref="cDiv" />
+    </bean>
+
+</beans>

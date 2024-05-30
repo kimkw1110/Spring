@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <!-- Maven 프로젝트 설정 -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>spring5</groupId> <!-- 프로젝트 그룹 아이디 -->
+  <artifactId>ch03_pjt_03</artifactId> <!-- 프로젝트 아티팩트 아이디 -->
+  <version>0.0.1-SNAPSHOT</version> <!-- 프로젝트 버전 -->
+
+  <!-- spring-context 모듈에 대한 의존성 설정 -->
+  <dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.2.9.RELEASE</version>
+    </dependency>
+  </dependencies>
+  
+  <!-- 빌드 설정 -->
+  <build>
+    <plugins>
+        <!-- Maven 컴파일 플러그인 설정 -->
+        <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>11</source> <!-- 컴파일 소스 버전 -->
+                <target>11</target> <!-- 컴파일 대상 버전 -->
+                <encoding>utf-8</encoding> <!-- 소스 파일 인코딩 설정 -->
+            </configuration>
+        </plugin>
+    </plugins>
+  </build>
+  
+</project>
