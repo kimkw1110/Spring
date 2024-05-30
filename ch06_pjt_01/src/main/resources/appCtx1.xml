@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    이 XML 파일은 Spring Framework의 설정 파일입니다.
+    각 Bean 객체들을 생성하고 설정하기 위해 사용됩니다.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- InitSampleData Bean 객체 생성 -->
+    <bean id="initSampleData" class="ch06_pjt_01.ems.utils.InitSampleData">
+        <!-- 학번 배열 설정 -->
+        <property name="sNums">
+            <array>
+                <value>hbs001</value>
+                <value>hbs002</value>
+                <value>hbs003</value>
+                <value>hbs004</value>
+                <value>hbs005</value>
+            </array>
+        </property>
+        <!-- 학생 아이디 배열 설정 -->
+        <property name="sIds">
+            <array>
+                <value>rabbit</value>
+                <value>hippo</value>
+                <value>raccoon</value>
+                <value>elephant</value>
+                <value>lion</value>
+            </array>
+        </property>
+        <!-- 학생 비밀번호 배열 설정 -->
+        <property name="sPws">
+            <array>
+                <value>p0001</value>
+                <value>p0002</value>
+                <value>p0003</value>
+                <value>p0004</value>
+                <value>p0005</value>
+            </array>
+        </property>
+        <!-- 학생 이름 배열 설정 -->
+        <property name="sNames">
+            <array>
+                <value>agatha</value>
+                <value>barbara</value>
+                <value>chris</value>
+                <value>doris</value>
+                <value>elva</value>
+            </array>
+        </property>
+        <!-- 학생 나이 배열 설정 -->
+        <property name="sAges">
+            <array>
+                <value>19</value>
+                <value>22</value>
+                <value>20</value>
+                <value>27</value>
+                <value>19</value>
+            </array>
+        </property>
+        <!-- 학생 성별 배열 설정 -->
+        <property name="sGenders">
+            <array>
+                <value>M</value>
+                <value>W</value>
+                <value>W</value>
+                <value>M</value>
+                <value>M</value>
+            </array>
+        </property>
+        <!-- 학생 전공 배열 설정 -->
+        <property name="sMajors">
+            <array>
+                <value>English</value>
+                <value>Korean</value>
+                <value>French</value>
+                <value>Philosophy</value>
+                <value>History</value>
+            </array>
+        </property>
+    </bean>
+    
+    <!-- StudentDao Bean 객체 생성 -->
+    <bean id="studentDao" class="ch06_pjt_01.ems.member.dao.StudentDao"></bean>
+    
+    <!-- StudentRegisterService Bean 객체 생성 -->
+    <bean id="studentRegisterService" class="ch06_pjt_01.ems.member.service.StudentRegisterService">
+        <constructor-arg ref="studentDao" />
+    </bean>
+    
+    <!-- StudentModifyService Bean 객체 생성 -->
+    <bean id="studentModifyService" class="ch06_pjt_01.ems.member.service.StudentModifyService">
+        <constructor-arg ref="studentDao" />
+    </bean>
+    
+    <!-- StudentDeleteService Bean 객체 생성 -->
+    <bean id="studentDeleteService" class="ch06_pjt_01.ems.member.service.StudentDeleteService">
+        <constructor-arg ref="studentDao" />
+    </bean>
+    
+    <!-- StudentAllSelectService Bean 객체 생성 -->
+    <bean id="studentAllSelectService" class="ch06_pjt_01.ems.member.service.StudentAllSelectService">
+        <constructor-arg ref="studentDao" />
+    </bean>
+    
+    <!-- StudentSelectService Bean 객체 생성 -->
+    <bean id="studentSelectService" class="ch06_pjt_01.ems.member.service.StudentSelectService">
+        <constructor-arg ref="studentDao" />
+    </bean>
+    
+    <!-- PrintStudentInformationService Bean 객체 생성 -->
+    <bean id="printStudentInformationService" class="ch06_pjt_01.ems.member.service.PrintStudentInformationService">
+        <constructor-arg ref="studentAllSelectService" />
+    </bean>
+    
+</beans>
