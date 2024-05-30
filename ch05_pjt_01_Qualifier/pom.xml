@@ -1,0 +1,56 @@
+<!-- Maven 프로젝트 설정 파일 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+	https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+    <!-- 모델 버전 -->
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 프로젝트 그룹 아이디 -->
+    <groupId>spring5</groupId>  
+    <!-- 프로젝트 아티팩트 아이디 -->
+    <artifactId>ch04_pjt_01</artifactId>
+    <!-- 프로젝트 버전 -->
+    <version>0.0.1-SNAPSHOT</version>
+  
+    <!-- spring-context 모듈 의존성 -->
+    <dependencies>
+        <dependency>
+            <!-- 그룹 아이디 -->
+            <groupId>org.springframework</groupId>
+            <!-- 아티팩트 아이디 -->
+            <artifactId>spring-context</artifactId>
+            <!-- 버전 -->
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+        
+    </dependencies>
+  
+    <!-- 빌드 설정 -->
+    <build>
+        <plugins>
+            <!-- Maven 컴파일 플러그인 설정 -->
+            <plugin>
+                <!-- 플러그인 아티팩트 아이디 -->
+                <artifactId>maven-compiler-plugin</artifactId>
+                <!-- 버전 -->
+                <version>3.1</version>
+                <configuration>
+                    <!-- 소스 및 타겟 버전 -->
+                    <source>11</source>
+                    <target>11</target>
+                    <!-- 인코딩 설정 -->
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
