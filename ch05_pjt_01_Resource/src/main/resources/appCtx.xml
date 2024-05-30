@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- XML 파일의 버전과 인코딩 설정 -->
+
+<!-- Spring Framework의 Bean 설정 파일 -->
+<beans 
+    xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://www.springframework.org/schema/context 
+                        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- 애노테이션 기반 설정을 활성화하기 위한 구성 -->
+    <context:annotation-config/>
+
+    <!-- 샘플 데이터를 초기화하는 Bean 설정 -->
+    <bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
+        <!-- 'names' 속성에 대한 설정 -->
+        <property name="names"> 
+            <array> <!-- 배열 데이터 타입으로 값 설정 -->
+                <value>류현진</value> <!-- 첫 번째 이름 -->
+                <value>손흥민</value> <!-- 두 번째 이름 -->
+                <value>김연경</value> <!-- 세 번째 이름 -->
+            </array>
+        </property>
+        
+        <!-- 'phoneNumbers' 속성에 대한 설정 -->
+        <property name="phoneNumbers">
+            <array>
+                <value>010-0000-1111</value> <!-- 첫 번째 전화번호 -->
+                <value>010-0000-2222</value> <!-- 두 번째 전화번호 -->
+                <value>010-0000-3333</value> <!-- 세 번째 전화번호 -->
+            </array>
+        </property>
+    </bean>
+    
+    <!-- 연락처 데이터 접근을 위한 ContactDao Bean 설정 -->
+    <bean id="contactDao" class="ch05_pjt_01.contact.dao.ContactDao" />
+    
+    <!-- 연락처 등록 서비스 Bean 설정 -->
+    <bean id="registerService" class="ch05_pjt_01.contact.service.ContactRegisterService">
+        <!-- 주석 처리된 생성자 인젝션 옵션 -->
+        <!-- <constructor-arg ref="contactDao" /> --> <!-- 이 옵션은 생성자 주입을 위한 것이지만 주석 처리 -->
+    </bean>
+    
+    <!-- 연락처 검색 서비스 Bean 설정 -->
+    <bean id="searchService" class="ch05_pjt_01.contact.service.ContactSearchService">
+        <!-- 주석 처리된 생성자 인젝션 옵션 -->
+        <!-- <constructor-arg ref="contactDao" /> --> <!-- 이 옵션은 생성자 주입을 위한 것이지만 주석 처리 -->
+    </bean>
+    
+</beans>
